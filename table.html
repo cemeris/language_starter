@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<link rel="stylesheet" href="style.css">
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
+
+<nav>
+    <a href="index.html">main</a>
+    <a href="table.html" target="_blank">table</a>
+</nav>
+
+<main>
+    <div id="table">
+        <input type="text" v-model="search_criteria">
+        <div class="table">
+            <table>
+                <tr v-for="word in filtered_words">
+                    <td>{{word.english}}</td>
+                    <td class="table__info">{{word.german}}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</main>
+
+<script src="data.js"></script>
+<script>
+    const app = new Vue({
+        el: "#table",
+        data: {
+            all_words: all_words,
+            search_criteria: ''
+        },
+        computed: {
+            filtered_words: function () {
+                const obj = this;
+                if (this.search_criteria == '') {
+                    return this.all_words;
+                }
+                else {
+                    return this.all_words.filter(function(el) {
+                        const element = el.english;
+                        return element
+                            .toLowerCase()
+                            .indexOf(obj.search_criteria.toLowerCase()) !== -1
+                    })
+                }
+            }
+        }
+    });
+</script>

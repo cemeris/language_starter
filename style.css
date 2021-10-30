@@ -1,0 +1,48 @@
+/** @format */
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 200px;
+}
+
+input {
+  font-size: 1.5em;
+  border-radius: 0.5em;
+  border: 0.03em solid black;
+  padding: 0.6em;
+}
+
+.history__word {
+  padding: 2px;
+  background: rgb(216, 216, 216);
+  margin: 0 0 5px 5px;
+  border-radius: 3px;
+}
+
+.history__word.success {
+  background: rgb(210, 255, 184);
+}
+
+.history {
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 1.5em;
+}
+
+.current {
+  font-size: 1.5em;
+}
+
+.table {
+  font-size: 1.5em;
+}
+.table tr:nth-child(2n) {
+  background: rgb(213, 226, 137);
+}
+
+.table__info {
+  font-weight: bold;
+  font-size: 1.2em;
+}
