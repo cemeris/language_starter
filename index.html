@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="style.css">
 <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
 
@@ -11,15 +12,18 @@
 <main>
     <div id="app">
         <div class="history">
-            <template v-for="(entry, key, index) in history">
-                <span v-if="key < Object.keys(history).length" class="history__word" :class="isAnswerRight(entry)">{{entry.german}}</span>
-            </template>
+            <div class="history__container">
+                <template v-for="(entry, key, index) in history">
+                    <span v-if="key < Object.keys(history).length" class="history__word" :class="isAnswerRight(entry)">{{entry.german}}</span>
+                </template>
+            </div>
         </div>
         <div class="current">
             <strong>{{current.english}}</strong>
+            <i>{{show_word}}</i>
         </div>
         <form action="#" @submit="prevent">
-            <input list="words_in_german" name="words_in_german" v-model="translation" @change="updateHistory(); this.focus();">
+            <input list="words_in_german" name="words_in_german" v-model="translation" @change="updateHistory()" @keydown="keyPressed">
             <datalist id="words_in_german">
               <option :value="word.german" v-for="word in all_words"></option>
             </datalist>
