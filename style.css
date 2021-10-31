@@ -16,7 +16,7 @@ input {
 .history {
   display: flex;
   flex-direction: column-reverse;
-  height: 100px;
+  height: 75px;
   overflow-y: scroll;
 }
 .history__word {
@@ -38,6 +38,7 @@ input {
 
 .current {
   font-size: 1.5em;
+  text-align: center;
 }
 
 .table {
